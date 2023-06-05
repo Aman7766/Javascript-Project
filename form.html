@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shubham</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #1172E8;
+            color: white;
+            font-size: 15px;
+        }
+
+        h1 {
+            margin: 0;
+            text-align: center;
+            font-family: 'Amaranth', sans-serif;
+            text-shadow: 3px 3px 6px black;
+        }
+
+        .container {
+            margin: 7% auto 0 auto;
+            width: 55%;
+            border-radius: 21px;
+            margin-bottom: 41px;
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #1172E8;
+            text-align: center;
+
+        }
+
+        .border-downn {
+            border-top: 2px solid #1172E8;
+            margin-bottom: 2%;
+        }
+
+        .contact {
+            margin-top: 4%;
+            margin-bottom: 9px;
+            letter-spacing: 1px;
+            font-size: 21px;
+            font-weight: bold;
+            color: #1172E8;
+        }
+
+        fieldset {
+            border: 0;
+        }
+
+        label {
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        .border_3 {
+            border-top: 2px solid #1172E8;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        select {
+            width: 100%;
+            margin-bottom: 2%;
+            margin-top: 1%;
+            height: 40px;
+            border-radius: 5px;
+            background-color: #eeeff1;
+            border: 2px solid transparent;
+            font-family: 'Maven Pro', sans-serif;
+
+        }
+
+        input[placeholder] {
+            text-align: right;
+            padding-right: 13px;
+
+            letter-spacing: 1px;
+        }
+
+        .button {
+            padding-top: 11px;
+            padding-bottom: 11px;
+            width: 35%;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            background-color: #1172E8;
+            font-family: 'Maven Pro', sans-serif;
+            font-style: oblique;
+            font-weight: 901;
+            font-size: 24px;
+            margin: 0 0 0 34%;
+
+        }
+
+        .button:focus,
+        .button:hover {
+            outline: none;
+            background-color: #4bdafa;
+            cursor: pointer;
+            color: white;
+        }
+
+        p {
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        @media(min-width:760px) {
+
+            .header {
+                padding-top: 2%;
+                padding-bottom: 2%;
+                font-size: 30px;
+            }
+
+            h1 {
+
+                /*text-shadow: 3px 3px 6px black;*/
+                margin: 0;
+                font-size: 2.2em;
+                text-align: center;
+                font-family: sans-serif;
+            }
+
+            .roww {
+                display: flex;
+                flex-direction: row;
+                vertical-align: center;
+                align-items: center;
+            }
+
+            label {
+                width: 20%;
+            }
+
+            .tff {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Loyalist College</h1>
+    </div>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <div class="border-downn"></div>
+        <form onsubmit="return validateform()" name="myform">
+            <fieldset>
+                <legend class="contact">Contact Information</legend>
+                <div class="roww"><label for="fname">First Name</label>
+                    <div class="tff">
+                        <input type="text" id="fname" name="first_name" placeholder="Required"><br />
+                    </div>
+                </div>
+                <div class="roww"><label for="lname">Last Name</label>
+                    <div class="tff">
+                        <input type="text" id="lname" name="last_name" placeholder="Required"><br />
+                    </div>
+                </div>
+                <div class="roww"><label for="email">Username</label>
+                    <div class="tff">
+                        <input type="text" id="user" name="user_name" placeholder="Required"><br />
+                    </div>
+                </div>
+                <div class="roww"><label for="pass">Password</label>
+                    <div class="tff">
+                        <input type="password" id="pass" name="password" placeholder="*******"><br />
+                    </div>
+                </div>
+                <div class="roww"><label for="address">Address</label>
+                    <div class="tff">
+                        <input type="text" id="address" name="address" placeholder="123 Fake Street"><br />
+                    </div>
+                </div>
+                <div class="roww"><label for="number">
+                        Phone Number</label>
+                    <div class="tff">
+                        <input type="text" id="number" name="phone_number" placeholder="987654321"><br />
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="border_3"></div>
+
+            <input type="submit" class="button" value="Submit">
+
+
+        </form>
+    </div>
+    <script>
+        function validateform() {
+            // Retrieve the values from the form fields
+            var firstName = document.forms["myform"]["first_name"].value;
+            var lastName = document.forms["myform"]["last_name"].value;
+            var username = document.forms["myform"]["user_name"].value;
+            var password = document.forms["myform"]["password"].value;
+            var address = document.forms["myform"]["address"].value;
+            var phoneNumber = document.forms["myform"]["phone_number"].value;
+
+            var firstNameValue = firstName;
+            var lastNameValue = lastName;
+            var usernameValue = username;
+            var passwordValue = password;
+            var addressValue = address;
+            var phoneNumberValue = phoneNumber;
+
+            // Perform your validation logic
+
+            if (firstName == "") {
+                alert("First Name is required");
+                document.forms["myform"]["first_name"].value = firstNameValue; // Restore the field value
+                return false;
+                // Prevent form submission
+            }
+            if (firstName.length < 3) {
+                alert("First Name should be greater than 3");
+                document.forms["myform"]["first_name"].value = firstNameValue; // Restore the field value
+                return false;
+                // Prevent form submission
+            }
+            if (firstName.includes(" ")) {
+                alert("First Name cannot contain spaces");
+                document.forms["myform"]["first_name"].value = firstNameValue; // Restore the field value
+                return false;
+            }
+            if (!/^[a-zA-Z]+$/.test(firstName)) {
+                alert("First Name should only contain alphabetic characters");
+                document.forms["myform"]["first_name"].value = firstNameValue; // Restore the field value
+                return false;
+            }
+
+
+
+
+            if (lastName === "") {
+                alert("Last Name is required");
+                document.forms["myform"]["last_name"].value = lastNameValue; // Restore the field value
+                return false; // Prevent form submission
+            }
+            if (lastName.length < 3) {
+                alert("Last Name should be greater than 3");
+                document.forms["myform"]["last_name"].value = lastNameValue; // Restore the field value
+                return false; // Prevent form submission
+            }
+            if (lastName.includes(" ")) {
+                alert("Last Name cannot contain spaces");
+                document.forms["myform"]["last_name"].value = lastNameValue; // Restore the field value
+                return false;
+            }
+            if (!/^[a-zA-Z]+$/.test(lastName)) {
+                alert("Last Name should only contain alphabetic characters");
+                document.forms["myform"]["last_name"].value = lastNameValue; // Restore the field value
+                return false;
+            }
+
+
+
+
+            if (username === "") {
+                alert("User Name is required");
+                document.forms["myform"]["user_name"].value = usernameValue; // Restore the field value
+                return false; // Prevent form submission
+            }
+            if (username.length < 6) {
+                alert("User Name should be greater than 6");
+                document.forms["myform"]["user_name"].value = usernameValue; // Restore the field value
+                return false; // Prevent form submission
+            }
+            if (username.includes(" ")) {
+                document.forms["myform"]["user_name"].value = usernameValue; // Restore the field value
+                return false;
+            }
+            if (!/^[a-zA-Z0-9]+$/.test(username)) {
+                document.forms["myform"]["user_name"].value = usernameValue; // Restore the field value
+                return false;
+            }
+
+            if (password.length < 8) {
+                alert("Password should be at least 8 characters long");
+                document.forms["myform"]["password"].value = passwordValue; // Restore the field value
+                return false;
+            }
+            if (!/[A-Z]/.test(password)) {
+                alert("Password should contain at least one uppercase letter");
+                document.forms["myform"]["password"].value = passwordValue; // Restore the field value
+                return false;
+            }
+            if (!/[a-z]/.test(password)) {
+                alert("Password should contain at least one lowercase letter");
+                document.forms["myform"]["password"].value = passwordValue; // Restore the field value
+                return false;
+            }
+            if (!/\d/.test(password)) {
+                alert("Password should contain at least one numeric digit");
+                document.forms["myform"]["password"].value = passwordValue; // Restore the field value
+                return false;
+            }
+            if (!/[^a-zA-Z\d]/.test(password)) {
+                alert("Password should contain at least one special character");
+                document.forms["myform"]["password"].value = passwordValue; // Restore the field value
+                return false;
+            }
+
+
+            if (address === "") {
+                alert("Address is required");
+                document.forms["myform"]["address"].value = addressValue; // Restore the field value
+                return false; // Prevent form submission
+            }
+
+
+
+            if (phoneNumber === "") {
+                alert("Phone Number is required");
+                document.forms["myform"]["phone_number"].value = phoneNumberValue; // Restore the field value
+                return false; // Prevent form submission
+            }
+            if (!/^\d{10,}$/.test(phoneNumber)) {
+                alert("Phone Number should contain only digits and have a minimum length of 10");
+                document.forms["myform"]["phone_number"].value = phoneNumberValue; // Restore the field value
+                return false;
+            }
+
+
+            document.forms["myform"]["last_name"].value = lastNameValue; // Restore the field value
+            document.forms["myform"]["first_name"].value = firstNameValue; // Restore the field value
+            document.forms["myform"]["address"].value = addressValue; // Restore the field value
+            document.forms["myform"]["user_name"].value = usernameValue; // Restore the field value
+            document.forms["myform"]["phone_number"].value = phoneNumberValue; // Restore the field value
+            document.forms["myform"]["password"].value = passwordValue; // Restore the field value
+            alert("Data Uploaded Succesfully");
+
+        }
+
+
+    </script>
+</body>
+
+</html>
